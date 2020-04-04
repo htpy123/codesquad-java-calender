@@ -4,15 +4,19 @@ import java.util.Scanner;
 
 public class Calender2 {
 	public static void main(String[] args) {
+		String PROMPT ="cal> ";
 		Scanner scanner = new Scanner(System.in);
 		Calender cal = new Calender();
-		
-		System.out.println("반복횟수를 입력하세요");
-		int repeat = scanner.nextInt();
-		
-		for(int i = 0; i<repeat; i++) {
+
+		int repeat;
+		int push = 0;
+		while(true) {
 			System.out.println("달을 입력하세요");
-			int push = scanner.nextInt();
+			System.out.println(PROMPT);
+			push = scanner.nextInt();
+			if(push == -1) {
+				break;
+			}
 			System.out.printf("%d월은 %d일까지 있습니다.\n",push, cal.getmaxDaysOfMonth(push));
 		}
 		System.out.println("Bye~");
